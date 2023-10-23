@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM s390x/ubuntu:latest
 ADD main.py kafka.txt rand_sentence.py ./
 #CMD ["python", "./main.py"]
 
