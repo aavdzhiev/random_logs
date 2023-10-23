@@ -1,5 +1,8 @@
-FROM s390x/ubuntu:latest
-RUN apt-get update && apt-get install -y python3.9 python3.9-dev
-ADD main.py kafka.txt rand_sentence.py ./
-CMD ["python", "./main.py"]
+FROM redhat/ubi8
+RUN yum install -y python3; yum clean all
+WORKDIR ./app
+ADD main.py kafka.txt rand_sentence.py /app/
+
+ENTRYPOINT ["python3"]
+CMD ["./main.py"]
 
